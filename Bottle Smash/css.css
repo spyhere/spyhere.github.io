@@ -1,0 +1,131 @@
+html {
+    height: 100%;
+}
+body {
+    margin: 0;
+    padding: 0;
+    user-select: none;
+    /* max-height: 100vh; */
+    height: 100%;
+    background-color: #000000;
+    color: #ffffff;
+}
+h2 {
+    margin: 2px 0 2px 0;
+}
+.bg {
+    height: 100%;
+    background-image: url('Images/garage.jpg');
+    background-size: cover;
+    -webkit-filter: blur(3px);
+    filter: blur(3px);
+    z-index: 0;
+}
+.container {
+    text-align: center;
+    display: flex;
+    z-index: 2;
+    overflow: hidden;
+}
+.info {
+    float: left;
+    margin: 0 50px 0 50px;
+    width: 280px;
+    height: 180px;
+    /* border: 1px solid; */
+    max-width: 280px;
+    background-image: url('Images/info.png');
+    background-size: cover;
+}
+.info h3,h2 {
+    font-family: 'Major Mono Display', monospace;
+}
+.square {
+    width: 150px;
+    height: 150px;
+    border: 3px solid transparent;
+}
+.grid {
+    display: flex;
+    flex-flow: row wrap;
+    width: 480px;
+    justify-content: center;
+    align-items: center;
+    margin: 5px 10% 50px 0;
+}
+img {
+    position: absolute;
+    right: 0%;
+    width: 150px;
+    height: 125px;
+    clip: rect(0px,150px,25px,0px);
+    filter: blur(0px);
+    transform: translateY(110px);
+    animation-name: intro;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+    opacity: 100%;
+    z-index: 10;
+}
+@keyframes intro {
+    70% {transform: translateY(-10px);
+        clip: rect(0px,150px,125px,0px);}
+    100% {transform: translateY(0);
+    clip: rect(0px,150px,125px,0px)}
+}
+@keyframes outro {
+    0% {transform: translateY(0);
+        clip: rect(0px,150px,125px,0px)}
+    30% {transform: translateY(-10px)}
+    36% {clip: rect(0px,150px,125px,0px)}
+    75% {clip: rect(0px,150px,25px,0px)}
+    100% {transform: translateY(110px);
+        clip: rect(0px,150px,25px,0px)}
+}
+#background_01 {
+    position: absolute;
+    pointer-events: none;
+    background-image: url('./Images/background_02.png');
+    background-size: cover;
+    width: 480px;
+    height: 480px;
+    z-index: 15;
+}
+#background_02 {
+    position: absolute;
+    pointer-events: none;
+    background-image: url('./Images/background_01.png');
+    background-size: cover;
+    width: 480px;
+    height: 480px;
+    z-index: 5;
+}
+button {
+    /* font-family: 'Sedgwick Ave Display', cursive; */
+    font-weight: bold;
+    color: #ffffff;
+    width: 4.3em;
+    height: 1.7em;
+    outline: none;
+    background-color: rgba(255,255,255,0.3);
+    border: 2px dashed #ffffff;
+    transition-duration: 0.4s;
+    padding: 2px;
+}
+button:hover {
+    background-color: rgba(255,255,255,0.9);
+    color: #000000;
+}
+#timeCont {
+    width: 50%;
+    margin-left: 25%;
+    border-radius: 4px;
+    background-color: rgba(255,0,0,0);
+    animation-name: none;
+    animation-duration: 0.3s;
+    animation-iteration-count: 3;
+}
+@keyframes time {
+    50% {background-color: rgba(255,0,0,0.9);}
+}

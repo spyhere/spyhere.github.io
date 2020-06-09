@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Whack-a-bottle</title>
+    <link rel="stylesheet" href="css.css">
+    <link href="https://fonts.googleapis.com/css2?family=Sedgwick+Ave+Display&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <audio id="smash_01">
+        <source src='./Source/smash_01.mp3' type="audio/mpeg">
+    </audio>
+    <audio id="smash_02">
+        <source src='./Source/smash_02.mp3' type="audio/mpeg">
+    </audio>
+    <audio id="smash_03">
+        <source src='./Source/smash_03.mp3' type="audio/mpeg">
+    </audio>
+    <audio id="smash_04">
+        <source src='./Source/smash_04.mp3' type="audio/mpeg">
+    </audio>
+    <div class="bg"></div>
+        <div style="position: fixed; z-index: 1; left: 0; top: 50px">
+            <!-- <h1 style="text-align: center;">Whack-a-bottle</h1> -->
+        <div class="container">
+            <div class="info">
+                <h2 style="margin-top: 20px">Score: <span id="score">0</span></h2>
+                <h2>Missed: <span id="missed">0</span></h2>
+                <div id="timeCont"><h3>Time: <span id="time">20</span></h3></div>
+                <button id="easy">Easy</button>
+                <button id="hard">Hard</button>
+                <button id="veteran">Veteran</button>
+                <button id="insane">Insane</button>
+            </div>
+            <div style="position: relative">
+                <div id=background_01></div>
+                <div id=background_02></div>
+            </div>
+            <div style="display: inline-block">
+                <div class="grid">
+                    <div class="square" id="0"></div>
+                    <div class="square" id="1"></div>
+                    <div class="square" id="2"></div>
+                    <div class="square" id="3"></div>
+                    <div class="square" id="4"></div>
+                    <div class="square" id="5"></div>
+                    <div class="square" id="6"></div>
+                    <div class="square" id="7"></div>
+                    <div class="square" id="8"></div>
+            </div>
+            </div>
+        </div>
+        </div>
+        
+    <script src="app.js" charset="UTF-8"></script>
+</body>
+</html>

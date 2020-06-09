@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css.css"> 
+    <link href="https://fonts.googleapis.com/css2?family=Faster+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Electrolize&display=swap" rel="stylesheet">
+    <title>FIB</title>
+</head>
+<body>
+    <audio id="walking">
+        <source src="./Source/walking.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="knocking">
+        <source src="./Source/knocking.mp3" type="audio/mpeg">
+    </audio>
+    <div>
+        <iframe id="video" src="https://www.youtube.com/embed/okbdwXAgUS0?enablejsapi=1&autoplay=1&mute=1&controls=0&showinfo=0&end=5&modestbranding=1" frameborder="0" allowfullscreen></iframe>
+        <script src="https://www.youtube.com/iframe_api"></script>
+    </div>
+    <div class="background"></div>
+    <div class='loading_screen'>
+        <div  class="loading">Loading<span></span></div>
+        <div class="controls">
+            <img src="./Images/arrows.png" alt="arrows">
+            <img src="./Images/restart.png" alt="arrows">
+            <img src="./Images/easy.png" alt="arrows">
+            <img src="./Images/hard.png" alt="arrows">
+            <img src="./Images/insane.png" alt="arrows">
+            <img src="./Images/oldmode.png" alt="arrows">
+        </div>
+    </div>
+    <div class="game">
+        <div class="score">Score <span>00</span></div>
+        <div class="restart info">Restart</div>
+        <div class="easy info">Easy</div>
+        <div class="hard info">Hard</div>
+        <div class="insane info">Insane</div>
+        <div class="oldmode info">OldMode</div>
+        <div class="field"></div>
+    </div>
+    <script src="app.js" charset="UTF-8"></script>
+</body>
+</html>

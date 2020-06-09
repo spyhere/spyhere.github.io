@@ -1,0 +1,116 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    user-select: none;
+}
+.bg {
+    background-image: url("./Images/background.png");
+    background-size: cover;
+    display: block;
+    position: absolute;
+    width: 100vw;
+    height: 110%;
+    bottom: 0%;
+    z-index: 15;
+}
+.score {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    top: 18%;
+    left: 19%;
+    text-shadow: 4px 3px 3px rgba(0,0,0,0.3);
+    font-size: 3em;
+    font-family: 'Faster One', cursive;
+    z-index: 20;
+}
+.score span{
+    margin-top: 50px;
+    font-family: 'Electrolize', sans-serif;
+}
+.info {
+    font-family: 'Electrolize', sans-serif;
+    position: absolute;
+    text-shadow: 4px 3px 3px rgba(0,0,0,0.3);
+    font-size: 2em;
+    padding: 10px;
+    border: 1px solid;
+    border-radius: 15px;
+    transition-duration: 0.2s;
+    z-index: 20;
+}
+.restart {
+    top: 75%;
+    left: 20%;
+}
+.easy {
+    top: 18%;
+    left: 76%;
+}
+.hard {
+    top: 37%;
+    left: 76%;
+}
+.insane {
+    top: 56%;
+    left: 76%;
+}
+.oldmode {
+    top: 75%;
+    left: 76%;
+}
+.field {
+    position: absolute;
+    left: 34%;
+    top: 15.8vh;
+    border: 3px double #000000;
+    background-color: #d0c285;
+    display: flex;
+    flex-wrap: wrap;
+    width: 510px;
+    height: 450px;
+    /* width: 37.34vw; */
+    /* height: 72vh; */
+    z-index: 20;
+}
+.cell {
+    width: 30px;
+    height: 30px;
+    /* flex-grow: 1; */
+    background-image: url("./Images/cell.png");
+    background-size: cover;
+}
+.snake {
+    width: 30px;
+    height: 30px;
+    /* flex-grow: 1; */
+    background-image: url("./Images/snake_body.png");
+    background-size: cover;
+    box-shadow: 4px 4px 2px rgba(0,0,0,0.2);
+    z-index: 5;
+}
+.target {
+    width: 30px;
+    height: 30px;
+    /* flex-grow: 1; */
+    background-image: url("./Images/target.png");
+    background-size: cover;
+}
+@media only screen and (min-width: 1920px) {
+    .field {
+        width: 714px;
+        height: 630px;
+    }
+    .cell {
+        width: 42px;
+        height: 42px;
+    }
+    .snake {
+        width: 42px;
+        height: 42px;
+    }
+    .target {
+        width: 42px;
+        height: 42px;
+    }
+}

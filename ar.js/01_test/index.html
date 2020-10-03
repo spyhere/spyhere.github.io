@@ -8,25 +8,29 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
     <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
     <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+    <script src="script.js"></script>
 </head>
 <body>
   <div class="arjs-loader">
     <div>Loading, please wait...</div>
   </div>
+  <div class="buttons">
+    <button data-dir="left" style="--l:0; --t:4em;">˂</button>
+    <button data-dir="up" style="--l:4em; --t:0;">˄</button>
+    <button data-dir="right" style="--l:8em; --t:4em;">˃</button>
+    <button data-dir="down" style="--l:4em; --t:8em;">˅</button>
+  </div>
     <a-scene embedded arjs>
-        <a-marker preset="hiro">
+        <a-marker markerhandler type="pattern" url="src/pattern-test_pattern.patt">
           <a-entity
             position="0 0 0"
-            scale="0.01 0.01 0.01"
-            gltf-model="https://github.com/spyhere/spyhere.github.io/tree/master/ar.js/01_test/src/scene.gltf"
+            rotation="0 0 0"
+            scale="0.009 0.009 0.009"
+            gltf-model="/src/scene.gltf"
           ></a-entity>
         </a-marker>
         <a-entity camera></a-entity>
       </a-scene>
 </body>
-<script>
-  window.onload = () => {
-    document.querySelector(".arjs-loader").style.display = "none";
-}
-</script>
+
 </html>

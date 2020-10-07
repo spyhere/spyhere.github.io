@@ -17,7 +17,7 @@ window.onload = () => {
     document.querySelector(".arjs-loader").style.display = "none";
     entity = document.querySelectorAll("a-entity[id]");
     for (let n in Array.from(entity)) {
-    entity[n].addEventListener("mouseenter", function() {
+    entity[n].addEventListener("touchstart", function() {
       this.setAttribute("material", "color",  `#${red}${green}${blue}`);
     })
   }
@@ -30,7 +30,7 @@ window.onload = () => {
 
 
 document.addEventListener("touchstart", (el) => {
-  // cursor.setAttribute("visible", "true");
+  cursor.setAttribute("visible", "true");
   let [x, y] = convertingCoords(el.clientX, el.clientY);
   cursor.object3D.position.set(x, y, -1);
   raycaster.direction = {x: x, y: y, z: -1};
@@ -45,19 +45,7 @@ document.addEventListener("touchend", () => {
 })
 
 function convertingCoords(x, y) {
-  if (x > window.innerWidth/2) {
-    x -= window.innerWidth/2;
-    x = x * widthMax / (window.innerWidth/2);
-  } else if (x < window.innerWidth/2) {
-    x = (x * widthMax / (window.innerWidth/2)) - widthMax;
-  }
-  if (y > window.innerHeight/2) {
-    y -= window.innerHeight/2;
-    y = (y * heightMax / (window.innerHeight/2) * -1);
-  } else if (y < window.innerHeight/2) {
-    y = heightMax - (y * heightMax / (window.innerHeight/2));
-  }
-  if (x > widthMax) x = 0;
-  if (y > heightMax) y = 0;
-  return [x,y];
+  x = (x - window.innerWidth/2) / (window.innerWidth/2) * widthMax;
+  y = (y - window.innerHeight/2) / (window.innerHeight/2) * -heightMax;
+  return [x, y];
 }

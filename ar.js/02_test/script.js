@@ -58,9 +58,9 @@ window.onload = () => {
     blue = Math.round(Math.random()*9 + 1);
   })
 
-  // document.addEventListener(`${listenerUp}`, () => {
-  //   cursor.setAttribute("visible", "false");
-  // })
+  document.addEventListener(`${listenerUp}`, () => {
+    cursor.setAttribute("visible", "false");
+  })
   
 }
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░

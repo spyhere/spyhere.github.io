@@ -17,7 +17,7 @@ window.onload = () => {
     document.querySelector(".arjs-loader").style.display = "none";
     entity = document.querySelectorAll("a-entity[id]");
     for (let n in Array.from(entity)) {
-    entity[n].addEventListener("mouseenter", function() {
+    entity[n].addEventListener("touchstart", function() {
       this.setAttribute("material", "color",  `#${red}${green}${blue}`);
     })
   }

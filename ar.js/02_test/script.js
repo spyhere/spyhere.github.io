@@ -29,7 +29,7 @@ window.onload = () => {
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
 
-document.addEventListener("mousedown", (el) => {
+document.addEventListener("touchstart", (el) => {
   // cursor.setAttribute("visible", "true");
   let [x, y] = convertingCoords(el.clientX, el.clientY);
   cursor.object3D.position.set(x, y, -1);
@@ -40,7 +40,7 @@ document.addEventListener("mousedown", (el) => {
   blue = Math.round(Math.random()*9 + 1);
 })
 
-document.addEventListener("mouseup", () => {
+document.addEventListener("touchend", () => {
   cursor.setAttribute("visible", "false");
 })
 

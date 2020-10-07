@@ -1,4 +1,5 @@
-let entity = null, markerVisible = false, cursor, raycaster, widthMax = 0.515, heightMax = 0.23, red, green, blue;
+let entity = null, markerVisible = false, cursor, raycaster, 
+widthMax = 0.515, heightMax = 0.23, red, green, blue, listenerPress = "mousedown", listenerUp = "mouseup", listenerOver = "mouseover";
 
 AFRAME.registerComponent('markerhandler', {
     init: function () {
@@ -14,10 +15,15 @@ AFRAME.registerComponent('markerhandler', {
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 window.onload = () => {
+    if (window.innerWidth < 768) {
+      listenerPress = "touchstart"; 
+      listenerUp = "touchend"; 
+      listenerOver = "touchmove";
+    }
     document.querySelector(".arjs-loader").style.display = "none";
     entity = document.querySelectorAll("a-entity[id]");
     for (let n in Array.from(entity)) {
-    entity[n].addEventListener("touchstart", function() {
+    entity[n].addEventListener(`${listenerOver}`, function() {
       this.setAttribute("material", "color",  `#${red}${green}${blue}`);
     })
   }
@@ -29,7 +35,8 @@ window.onload = () => {
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
 
-document.addEventListener("touchstart", (el) => {
+document.addEventListener(`${listenerPress}`, (el) => {
+  document.querySelector(".marked").style.backgroundColor = "white";
   cursor.setAttribute("visible", "true");
   let [x, y] = convertingCoords(el.clientX, el.clientY);
   cursor.object3D.position.set(x, y, -1);
@@ -40,7 +47,7 @@ document.addEventListener("touchstart", (el) => {
   blue = Math.round(Math.random()*9 + 1);
 })
 
-document.addEventListener("touchend", () => {
+document.addEventListener(`${listenerUp}`, () => {
   cursor.setAttribute("visible", "false");
 })
 

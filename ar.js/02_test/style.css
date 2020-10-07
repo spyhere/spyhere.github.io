@@ -37,3 +37,10 @@
   left: var(--l);
   top: var(--t);
 }
+.marked {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  top: 0;
+  background-color: aqua;
+}

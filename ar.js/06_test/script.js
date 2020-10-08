@@ -14,6 +14,11 @@ AFRAME.registerComponent('markerhandler', {
 
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+async function testFunc() {
+let resVar = await fetch("https://arjs-cors-proxy.herokuapp.com/https://raw.githack.com/spyhere/spyhere.github.io/master/ar.js/06_test/image_descriptors/test.fset");                         
+console.log(resVar)
+}
+testFunc()
 window.onload = () => {
     if (window.innerWidth < 768) {
       listenerPress = "touchstart"; 
@@ -22,8 +27,8 @@ window.onload = () => {
       widthMax = 0.27;
       heightMax = 0.39;
     }
-
-    document.querySelector(".arjs-loader").style.display = "none";
+    
+    // document.querySelector(".arjs-loader").style.display = "none";
     entity = document.querySelectorAll("a-entity[id]");
     for (let n in Array.from(entity)) {
     entity[n].addEventListener("mouseenter", function() {

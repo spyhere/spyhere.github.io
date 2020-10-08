@@ -21,29 +21,26 @@ window.onload = () => {
 
       widthMax = 0.27;
       heightMax = 0.39;
-    } //else {
-    //   listenerPress = "mousedown "; 
-    //   listenerUp = "mouseup"; 
-    //   listenerOver = "mouseenter";
+    }
 
-    //   widthMax = 0.27;
-    //   heightMax = 0.39;
-    // }
     document.querySelector(".arjs-loader").style.display = "none";
     entity = document.querySelectorAll("a-entity[id]");
     for (let n in Array.from(entity)) {
     entity[n].addEventListener("mouseenter", function() {
+      red = Math.round(Math.random()*9);
+      green = Math.round(Math.random()*9);
+      blue = Math.round(Math.random()*9);
       this.setAttribute("material", "color",  `#${red}${green}${blue}`);
-      console.log("herer")
     })
   }
 
   cursor = document.querySelector("a-cursor");
   raycaster = cursor.getAttribute("raycaster");
 
+  raycaster.direction = {x: 100, y: 100, z: -1}
 
   document.addEventListener(`${listenerPress}`, (el) => {
-    cursor.setAttribute("visible", "true");
+    // cursor.setAttribute("visible", "true");
     if (window.innerWidth < 768) {
       el.clientX = el.changedTouches[0].clientX;
       el.clientY = el.changedTouches[0].clientY;
@@ -52,14 +49,12 @@ window.onload = () => {
     let [x, y] = convertingCoords(el.clientX, el.clientY);
     cursor.object3D.position.set(x, y, -1);
     raycaster.direction = {x: x, y: y, z: -1};
-  
-    red = Math.round(Math.random()*9 + 1);
-    green = Math.round(Math.random()*9 + 1);
-    blue = Math.round(Math.random()*9 + 1);
+    
   })
 
   document.addEventListener(`${listenerUp}`, () => {
     cursor.setAttribute("visible", "false");
+    raycaster.direction = {x: 100, y: 100, z: -1}
   })
   
 }

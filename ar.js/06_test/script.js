@@ -14,11 +14,6 @@ AFRAME.registerComponent('markerhandler', {
 
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
-async function testFunc() {
-let resVar = await fetch("https://arjs-cors-proxy.herokuapp.com/https://raw.githack.com/spyhere/spyhere.github.io/master/ar.js/06_test/image_descriptors/test.fset");                         
-console.log(resVar)
-}
-testFunc()
 window.onload = () => {
     if (window.innerWidth < 768) {
       listenerPress = "touchstart"; 

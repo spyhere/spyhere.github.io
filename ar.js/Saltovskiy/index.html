@@ -15,21 +15,45 @@
     <div>Loading, please wait...</div>
   </div>
     <a-scene embedded arjs>
+      <a-assets>
+        <img id="kolbasi" src="./text01.png" alt="text01">
+        <img id="sovremen" src="./text02.png" alt="text02">
+      </a-assets>
         <a-marker id="marker" markerhandler type="pattern" url="pattern-test_pattern.patt"> 
-          <a-entity id="Saltovskiy" position="0 0.44597 0"
-          rotation="0 0 0"
-          scale="0.15 0.15 0.15"
-          gltf-model="./Logo.glb"
-          animation="property: rotation; to: 0 360 0; easing: linear; loop: true; dur: 5000"></a-entity>
+          <a-entity rotation="-90 0 0">
+            <a-entity id="Saltovskiy" position="0 0.44597 0"
+            rotation="0 0 0"
+            scale="0.13 0.13 0.13"
+            gltf-model="./Logo.glb"
+            animation="property: rotation; to: 0 360 0; easing: linear; loop: true; dur: 5000"></a-entity>
 
-          <a-text id="text01" position="0 -0.6393 0" fontImage="./kirilica.png" text="align: center; color: #fcfcfc; letterSpacing: 0.3; lineHeight: 0; negate: false" value="Колбасы и деликатесы для"
-        font="./kirilica-msdf.json"
-        color="#33C3F0"
-        negate="false"
-        animation="property: position; from: -3 -0.6393 0; to: 0 -0.6393 0; easing: easeInBack; dur: 2000; delay: 3000"
-        animation__opac="property: opacity; from: 0; to: 1; easing: easeInBack; dur: 2000; delay: 3000"
-        animation__out="property: position; from: 0 -0.6393 0; to: 3 -0.6393 0; easing: easeInBack; dur: 2000; delay: 8000"
-        animation__opacout="property: opacity; from: 1; to: 0; easing: easeInBack; dur: 2000; delay: 8000"></a-text>
+            <a-image id="text01" position="0 -0.3 0"
+            opacity="0"
+            src="#kolbasi" 
+            height="0.170"
+            value="Колбасы и деликатесы для"
+            scale="1.5 1.5 1.5"
+            negate="false"
+            animation="property: position; from: -3 -0.3 0; to: 0 -0.3 0; easing: easeInBack; dur: 2000; delay: 0; startEvents: restart"
+            animation__opac="property: opacity; from: 0; to: 1; easing: easeInBack; dur: 2000; delay: 0; startEvents: restart"
+            animation__out="property: position; from: 0 -0.3 0; to: 3 -0.3 0; easing: easeOutBack; dur: 2000; delay: 5000; startEvents: restart"
+            animation__opacout="property: opacity; from: 1; to: 0; easing: easeOutBack; dur: 2000; delay: 5000; startEvents: restart"
+            ></a-image>
+
+            <a-image id="text02" position="0 -0.321 0"
+            opacity="0"
+            src="#sovremen" 
+            height="0.170"
+            value="современных людей"
+            scale="1.5 1.5 1.5"
+            negate="false"
+            animation="property: position; from: -3 -0.321 0; to: 0 -0.321 0; easing: easeInBack; dur: 2000; delay: 4000; startEvents: restart"
+            animation__opac="property: opacity; from: 0; to: 1; easing: easeInBack; dur: 2000; delay: 4000; startEvents: restart"
+            animation__out="property: position; from: 0 -0.321 0; to: 3 -0.321 0; easing: easeOutBack; dur: 2000; delay: 10000; startEvents: restart"
+            animation__opacout="property: opacity; from: 1; to: 0; easing: easeOutBack; dur: 2000; delay: 10000; startEvents: restart"
+            ></a-image>
+          </a-entity>
+          
         </a-marker>
         <a-cursor visible="false" position="0 0 -1"></a-cursor>
         <a-entity camera>

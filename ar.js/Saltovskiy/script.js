@@ -1,13 +1,22 @@
-let entity = null, markerVisible = false, cursor, raycaster, 
+let entity = null, markerVisible = false, cursor, raycaster, text, textInterval,
 widthMax = 0.515, heightMax = 0.23, red, green, blue, listenerPress = "mousedown", listenerUp = "mouseup";
 
 AFRAME.registerComponent('markerhandler', {
     init: function () {
       this.el.sceneEl.addEventListener('markerFound', () => {
         markerVisible = true;
+        if (text) {
+          clearInterval(textInterval);
+          textInterval = setInterval(() => {
+            text[0].emit("restart");
+            text[1].emit("restart");
+          }, 10000);
+        }
+        console.log("retarted")
       })
       this.el.sceneEl.addEventListener('markerLost', () => {
         markerVisible = false;
+        clearInterval(textInterval);
       })
     }
   });
@@ -24,6 +33,8 @@ window.onload = () => {
     }
 
     document.querySelector(".arjs-loader").style.display = "none";
+
+    text = document.querySelectorAll("a-image");
 
 
   cursor = document.querySelector("a-cursor");

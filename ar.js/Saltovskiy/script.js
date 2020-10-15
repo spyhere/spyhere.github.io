@@ -5,18 +5,17 @@ AFRAME.registerComponent('markerhandler', {
     init: function () {
       this.el.sceneEl.addEventListener('markerFound', () => {
         markerVisible = true;
-        if (text) {
-          clearInterval(textInterval);
+        if (!textInterval) {
+          text[0].emit("restart");
+          text[1].emit("restart");
           textInterval = setInterval(() => {
             text[0].emit("restart");
             text[1].emit("restart");
           }, 10000);
         }
-        console.log("retarted")
       })
       this.el.sceneEl.addEventListener('markerLost', () => {
         markerVisible = false;
-        clearInterval(textInterval);
       })
     }
   });

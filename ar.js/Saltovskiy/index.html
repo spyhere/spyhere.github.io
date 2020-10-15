@@ -14,7 +14,7 @@
   <div class="arjs-loader">
     <div>Loading, please wait...</div>
   </div>
-    <a-scene embedded arjs>
+    <a-scene embedded arjs artoolkit='sourceType: webcam;' renderer='logarithmicDepthBuffer: true;'>
       <a-assets>
         <img id="kolbasi" src="./text01.png" alt="text01">
         <img id="sovremen" src="./text02.png" alt="text02">
@@ -56,7 +56,7 @@
           
         </a-marker>
         <a-cursor visible="false" position="0 0 -1"></a-cursor>
-        <a-entity camera>
+        <a-entity camera="far:100000; near:0.01">
         </a-entity>
 
         <a-entity id="light01" light="type: directional; color: #EEE; intensity: 0.22; decay: 0.56" target="#Saltovskiy" position="-1 -0.40733 1.71298"></a-entity>

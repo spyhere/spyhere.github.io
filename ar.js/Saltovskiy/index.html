@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <title>Saltovskiy</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+    <script src="script.js"></script>
+</head>
+<body>
+  <div class="arjs-loader">
+    <div>Loading, please wait...</div>
+  </div>
+    <a-scene embedded arjs>
+        <a-marker id="marker" markerhandler type="pattern" url="pattern-test_pattern.patt"> 
+          <a-entity id="Saltovskiy" position="0 0.44597 0"
+          rotation="0 0 0"
+          scale="0.15 0.15 0.15"
+          gltf-model="./Logo.glb"
+          animation="property: rotation; to: 0 360 0; easing: linear; loop: true; dur: 5000"></a-entity>
+
+          <a-text id="text01" position="0 -0.6393 0" fontImage="./kirilica.png" text="align: center; color: #fcfcfc; letterSpacing: 0.3; lineHeight: 0; negate: false" value="Колбасы и деликатесы для"
+        font="./kirilica-msdf.json"
+        color="#33C3F0"
+        negate="false"
+        animation="property: position; from: -3 -0.6393 0; to: 0 -0.6393 0; easing: easeInBack; dur: 2000; delay: 3000"
+        animation__opac="property: opacity; from: 0; to: 1; easing: easeInBack; dur: 2000; delay: 3000"
+        animation__out="property: position; from: 0 -0.6393 0; to: 3 -0.6393 0; easing: easeInBack; dur: 2000; delay: 8000"
+        animation__opacout="property: opacity; from: 1; to: 0; easing: easeInBack; dur: 2000; delay: 8000"></a-text>
+        </a-marker>
+        <a-cursor visible="false" position="0 0 -1"></a-cursor>
+        <a-entity camera>
+        </a-entity>
+
+        <a-entity id="light01" light="type: directional; color: #EEE; intensity: 0.22; decay: 0.56" target="#Saltovskiy" position="-1 -0.40733 1.71298"></a-entity>
+        <a-entity id="light02" visible="true" light="type: directional; color: #f0f401; intensity: 0.16; decay: 1.01" target="#Saltovskiy" position="1.67598 1.54759 0.01104"></a-entity>
+        <a-entity id="light03" visible="true" light="type: directional; color: #6257ff; intensity: 0.16; decay: 0.93" target="#Saltovskiy" position="-1.67598 1.54759 0.09456"></a-entity>
+        <a-entity id="light04" light="type: ambient; color: #EEE; intensity: 1.31; decay: 0.48" position="0 0 0"></a-entity>
+      </a-scene>
+</body>
+
+</html>

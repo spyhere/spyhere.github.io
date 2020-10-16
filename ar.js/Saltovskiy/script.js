@@ -1,17 +1,17 @@
-let entity = null, markerVisible = false, cursor, raycaster, text, textInterval,
+let entity = null, markerVisible = false, cursor, raycaster, text, textInterval = new Array(),
 widthMax = 0.515, heightMax = 0.23, red, green, blue, listenerPress = "mousedown", listenerUp = "mouseup";
 
 AFRAME.registerComponent('markerhandler', {
     init: function () {
       this.el.sceneEl.addEventListener('markerFound', () => {
         markerVisible = true;
-        if (!textInterval) {
+        if (!textInterval.length) {
           text[0].emit("restart");
-          text[1].emit("restart");
-          textInterval = setInterval(() => {
-            text[0].emit("restart");
+          textInterval[0] = setInterval(() => text[0].emit("restart"), 12000)
+          setTimeout(() => {
             text[1].emit("restart");
-          }, 10000);
+            textInterval[1] = setInterval(() => text[1].emit("restart"), 12000);
+          }, 6000);
         }
       })
       this.el.sceneEl.addEventListener('markerLost', () => {

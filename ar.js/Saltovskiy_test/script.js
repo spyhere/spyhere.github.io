@@ -14,7 +14,7 @@ AFRAME.registerComponent('markerhandler', {
             textInterval[1] = setInterval(() => text[1].emit("restart"), 12000);
           }, 6000);
         }
-        if (audio01) {
+        if (audio01 && audioOn) {
           clearTimeout(audio01Timer);
           audio01.play();
         }
@@ -49,6 +49,7 @@ window.onload = () => {
     img.addEventListener("touchstart", appleTouch)
   } else {
     audio01.src = './Jain - Makeba.mp3';
+    audioOn = true;
   }
 
   // // Cursos & Raycaster
@@ -115,13 +116,11 @@ function appleTouch() {
   if (!audioOn) {
     img.setAttribute("src", "./sound_on.png");
     if (!userInteract) audio01.play();
-    if (!audio01.volume) audio01.volume = 1;
     audioOn = true;
     userInteract = true;
   } else {
     img.setAttribute("src", "./sound_off.png");
-    audio01.volume = 0;
-    alert(audio01.volume);
+    audio01.pause();
     audioOn = false;
   }
   if (!audio01.src.length) audio01.src = './Jain - Makeba.mp3'; 

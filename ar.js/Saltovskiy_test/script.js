@@ -1,4 +1,4 @@
-let entity = null, markerVisible = false, cursor, raycaster, text, textInterval = new Array(), iOs = false, audioOn = false,
+let entity = null, markerVisible = false, cursor, raycaster, text, textInterval = new Array(), iOs = false, audioOn = false, img,
 audio01, audio01Timer, widthMax = 0.515, heightMax = 0.23, listenerPress = "mousedown", listenerUp = "mouseup";
 
 AFRAME.registerComponent('markerhandler', {
@@ -44,7 +44,7 @@ window.onload = () => {
   iOs = getMobileOperatingSystem();
 
   if (iOs) {
-    let img = document.querySelector("#speaker");
+    img = document.querySelector("#speaker");
     img.style.display = "block";
     img.addEventListener("touchstart", appleTouch)
   } else {
@@ -115,10 +115,11 @@ function appleTouch() {
   if (!audioOn) {
     img.setAttribute("src", "./sound_on.png");
     audio01.play();
+    if (!audio01.volume) audio01.volume = 1;
     audioOn = true;
   } else {
     img.setAttribute("src", "./sound_off.png");
-    audio01.pause();
+    audio01.volume = 0;
     audioOn = false;
   }
   if (!audio01.src.length) audio01.src = './Jain - Makeba.mp3'; 

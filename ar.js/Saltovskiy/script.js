@@ -1,4 +1,4 @@
-let entity = null, markerVisible = false, cursor, raycaster, text, textInterval = new Array(),
+let entity = null, markerVisible = false, cursor, raycaster, text, textInterval = new Array(), audio01, audio01Timer,
 widthMax = 0.515, heightMax = 0.23, red, green, blue, listenerPress = "mousedown", listenerUp = "mouseup";
 
 AFRAME.registerComponent('markerhandler', {
@@ -13,9 +13,14 @@ AFRAME.registerComponent('markerhandler', {
             textInterval[1] = setInterval(() => text[1].emit("restart"), 12000);
           }, 6000);
         }
+        if (audio01) {
+          clearTimeout(audio01Timer);
+          audio01.play();
+        }
       })
       this.el.sceneEl.addEventListener('markerLost', () => {
         markerVisible = false;
+        if (audio01) audio01Timer = setTimeout(() => audio01.pause(), 1000);
       })
     }
   });
@@ -31,6 +36,7 @@ window.onload = () => {
       heightMax = 0.39;
     }
 
+    audio01 = document.querySelector("#makeba");
     document.querySelector(".arjs-loader").style.display = "none";
 
     text = document.querySelectorAll("a-image");

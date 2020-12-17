@@ -1,0 +1,85 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: #000000;
+  overflow: hidden;
+}
+.arjs-loader {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.arjs-loader div {
+  font-family: 'Montserrat', sans-serif;
+  text-align: center;
+  font-size: 1.25em;
+  color: white;
+}
+
+.popUp {
+  min-width: 50%;
+  width: fit-content;
+  max-width: 98%;
+  max-height: 60%;
+  opacity: 0;
+  background: #fff;
+  border-radius: 10px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 0;
+  font-size: 1.5em;
+  padding: 0.5em;
+  font-family: 'Fira Sans', sans-serif;
+  text-align: center;
+  animation: popup 1s ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+@keyframes popup {
+  to {
+    opacity: 0.8;
+    top: 40%;
+  }
+}
+
+
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+button {
+  cursor: pointer;
+  padding: 0.5em;
+  width: 4em;
+  height: 4em;
+  margin: 10px;
+  font-size: 0.6em;
+  font-weight: 900;
+  border-radius: 10px;
+  border: none;
+  background: #bbb;
+}
+
+.counts button {
+  cursor: pointer;
+  width: 4em;
+  height: 4em;
+  margin: 5px;
+}
+@media only screen and (max-width: 768px) {
+  
+}

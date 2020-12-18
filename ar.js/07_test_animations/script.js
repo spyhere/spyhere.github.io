@@ -3,7 +3,7 @@ let $model
 const answears = []
 const animations = {
   chunks: [0, 6.77, 6.77, 6.77],
-  seconds: [7400, 600, 600, 0]
+  seconds: [6750, 600, 600, 0]
 }
 let token = 0
 const messages = {
@@ -57,7 +57,7 @@ const buttons = new Buttons()
 
 window.onload = () => {
   $model = document.querySelector('#model')
-  init()
+  document.querySelector(".arjs-loader").style.display = "none";
 }
 
 
@@ -83,7 +83,6 @@ function textAnimation(val) {
 
 // INITIALIZATION OF A QUIZ
 function init() {
-  document.querySelector(".arjs-loader").style.display = "none";
   playAnim() 
   setTimeout(() => {
     stopAnim() 
@@ -122,8 +121,10 @@ function newAnim(val){
 }
 // Bye
 function bye() {
-  const div = document.createElement('div')
-  div.innerText = "Дякуємо за участь!"
-  div.setAttribute('class', 'popUp')
-  document.querySelector('body').appendChild(div)
+  setTimeout(() => {
+    const div = document.createElement('div')
+    div.innerText = "Дякуємо за участь!"
+    div.setAttribute('class', 'popUp')
+    document.querySelector('body').appendChild(div)
+  }, 3000)
 }

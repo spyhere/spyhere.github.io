@@ -15,15 +15,15 @@
   <div class="arjs-loader">
     <div>Loading, please wait...</div>
   </div>
-  <a-scene vr-mode-ui="enabled: true" embedded arjs="sourceType: webcam; debugUIEnabled: false;" artoolkit='sourceType: webcam;' renderer='logarithmicDepthBuffer: true;'>
+  <a-scene vr-mode-ui="enabled: false" embedded arjs="sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;" artoolkit='sourceType: webcam;' renderer='logarithmicDepthBuffer: true;'>
       <a-assets>
         <a-asset-item id="1" src="V3_Final.glb"></a-asset-item>
       </a-assets>
-        <!-- <a-marker rotation="-90 0 0" markerhandler type="pattern" url="pattern-test_pattern.patt">    -->
-          <a-entity rotation="-0 0 0" position="0 0 -5">
-            <a-gltf-model id="model" src="#1" style="display: block;" animation-mixer="clip: Take 001; loop: once; timeScale: 0"></a-gltf-model>
+      <a-marker id="marker" markerhandler smooth="true" type="barcode" value="17"> 
+          <a-entity rotation="-90 0 0" position="0 0 3.5">
+            <a-gltf-model id="model" src="#1" scale="6 6 6" animation-mixer="clip: Take 001; loop: once; timeScale: 0"></a-gltf-model>
           </a-entity>
-        <!-- </a-marker> -->
+        </a-marker>
         <a-cursor visible="false" position="0 0 -1"></a-cursor>
         <a-entity camera="far:100000; near:0.01">
           

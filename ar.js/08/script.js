@@ -1,10 +1,13 @@
 
-let iOs = false, audioOn = false, img, userInteract = false,
+let iOs = false, audioOn = false, img,
 audio01, listenerPress = "mousedown", listenerUp = "mouseup";
 
-window.onload = () => {
+const $video = document.querySelector('#alpha')
+  $video.currentTime = 1
+$video.oncanplay = () => {
+  $video.play()
   document.querySelector(".arjs-loader").style.display = "none";
-  audio01 = new Audio()
+  // audio01 = new Audio()
 
   if (window.innerWidth < 768) {
     changeInputNames()
@@ -14,13 +17,13 @@ window.onload = () => {
   iOs = getMobileOperatingSystem();
 
   if (iOs) {
+    $video.volume = 1
     img = document.querySelector("#speaker");
     img.style.display = "block";
     img.addEventListener("touchstart", appleTouch)
   } else {
     // audio01.src = './Comp_1.mp3';
     // audioOn = true;
-    // Audio will autoplay from video
   }
 }
 
@@ -51,14 +54,14 @@ function changeInputNames() {
 
 function appleTouch() {
   if (!audioOn) {
+    $video.play()
     img.setAttribute("src", "./sound_on.png");
-    if (!userInteract) audio01.play();
+    $video.volume = 1
     audioOn = true;
-    userInteract = true;
   } else {
     img.setAttribute("src", "./sound_off.png");
-    audio01.pause();
+    $video.volume = 0
     audioOn = false;
   }
-  if (!audio01.src.length) audio01.src = './Comp_1.mp3'; 
+  // if (!audio01.src.length) audio01.src = './Comp_1.mp3'; 
 }

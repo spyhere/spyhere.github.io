@@ -1,6 +1,6 @@
 
-let $model
-const answears = []
+let $model, linkBE = 'http://192.168.0.101:8000/api/results'
+const answers = []
 const animations = {
   chunks: [0, 6.77, 6.77, 6.77],
   seconds: [6750, 600, 600, 0]
@@ -10,44 +10,51 @@ const messages = {
   text: [
     'Чи знаєте ви про цілі сталого розвитку та їх індикатори?', 
     'Скільки цілей сталого розвитку в фокусі вашої компанії?',
-    'Оцініть важливість цілей сталого розвитку для бізнесу'
+    'Оцініть важливість цілей сталого розвитку для бізнесу (де 1 - майже неважливо, 5 - надзвичайно важливо)'
   ],
   buttons: ['buttons', 'count', 'rates']
 }
 
 class Buttons {
-  buttons(val) {
+  buttons() {
     return `
     <div class="buttons">
-      <button onclick="answear(${val}, 'yes')">ТАК</button>
-      <button onclick="answear(${val}, 'no')">НІ</button>
+      <button onclick="answer(1)">ТАК</button>
+      <button onclick="answer(0)">НІ</button>
     </div>
     `
   }
-  count(val) {
+  count() {
     return `
     <div class="counts">
-      <button onclick="answear(${val}, '1')">1</button>
-      <button onclick="answear(${val}, '2')">2</button>
-      <button onclick="answear(${val}, '3')">3</button>
-      <button onclick="answear(${val}, '4')">4</button>
-      <button onclick="answear(${val}, '5')">5</button>
-      <button onclick="answear(${val}, '6')">6</button>
-      <button onclick="answear(${val}, '7')">7</button>
-      <button onclick="answear(${val}, '8')">8</button>
-      <button onclick="answear(${val}, '9')">9</button>
-      <button onclick="answear(${val}, '10')">10</button>
+      <button onclick="answer(1)">1</button>
+      <button onclick="answer(2)">2</button>
+      <button onclick="answer(3)">3</button>
+      <button onclick="answer(4)">4</button>
+      <button onclick="answer(5)">5</button>
+      <button onclick="answer(6)">6</button>
+      <button onclick="answer(7)">7</button>
+      <button onclick="answer(8)">8</button>
+      <button onclick="answer(9)">9</button>
+      <button onclick="answer(10)">10</button>
+      <button onclick="answer(11)">6</button>
+      <button onclick="answer(12)">7</button>
+      <button onclick="answer(13)">8</button>
+      <button onclick="answer(14)">9</button>
+      <button onclick="answer(15)">10</button>
+      <button onclick="answer(16)">9</button>
+      <button onclick="answer(17)">10</button>
     </div>
     `
   }
-  rates(val) {
+  rates() {
     return `
     <div class="buttons">
-      <button onclick="answear(${val}, '1')">1</button>
-      <button onclick="answear(${val}, '2')">2</button>
-      <button onclick="answear(${val}, '3')">3</button>
-      <button onclick="answear(${val}, '4')">4</button>
-      <button onclick="answear(${val}, '5')">5</button>
+      <button onclick="answer(1)">1</button>
+      <button onclick="answer(2)">2</button>
+      <button onclick="answer(3)">3</button>
+      <button onclick="answer(4)">4</button>
+      <button onclick="answer(5)">5</button>
     </div>
     `
   }
@@ -71,11 +78,11 @@ function textPopUp() {
   }
 }
 
-// POPUP AIMATION OF A QUESTION
+// POPUP ANIMATION OF A QUESTION
 function textAnimation(val) {
   const div = document.createElement('div')
   div.innerHTML = `${messages.text[val]}<br>
-  ${buttons[messages.buttons[token]](token)}`
+  ${buttons[messages.buttons[token]]()}`
   div.setAttribute('class', 'popUp')
   document.querySelector('body').appendChild(div)
 }
@@ -90,10 +97,9 @@ function init() {
   }, animations.seconds[0])
 }
 
-// TAKING ANSWEAR OF THE USER
-function answear(question, answear) {
-  answears.push(`Question ${question+1}: ${answear}`)
-  console.log(answears)
+// TAKING ANSWER OF THE USER
+function answer(answer) {
+  answers.push(answer)
   document.querySelector('.popUp').remove()
   newAnim(animations.chunks[token])
   playAnim()
@@ -121,10 +127,23 @@ function newAnim(val){
 }
 // Bye
 function bye() {
+  sendResults()
   setTimeout(() => {
     const div = document.createElement('div')
     div.innerText = "Дякуємо за участь!"
     div.setAttribute('class', 'popUp')
     document.querySelector('body').appendChild(div)
   }, 3000)
+}
+// Send results to the server
+function sendResults() {
+  const headers = {
+    'Content-Type': 'application/json',
+    'X-Requested-With': 'XMLHttpRequest'
+  }
+  const body = {
+    'data': answers
+  }
+  fetch(linkBE, {method: 'POST', body: JSON.stringify(body), headers})
+  .catch(e => console.log(e))
 }

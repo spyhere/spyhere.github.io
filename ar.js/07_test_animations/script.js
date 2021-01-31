@@ -1,5 +1,5 @@
 
-let $model, linkBE = 'http://192.168.0.101:8000/api/results'
+let $model, linkBE = 'https://earth-back.com.185-70-110-151.preview-host.pp.ua/api/results/'
 const answers = []
 const animations = {
   chunks: [0, 6.77, 6.77, 6.77],

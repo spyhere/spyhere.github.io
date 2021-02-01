@@ -37,13 +37,13 @@ class Buttons {
       <button onclick="answer(8)">8</button>
       <button onclick="answer(9)">9</button>
       <button onclick="answer(10)">10</button>
-      <button onclick="answer(11)">6</button>
-      <button onclick="answer(12)">7</button>
-      <button onclick="answer(13)">8</button>
-      <button onclick="answer(14)">9</button>
-      <button onclick="answer(15)">10</button>
-      <button onclick="answer(16)">9</button>
-      <button onclick="answer(17)">10</button>
+      <button onclick="answer(11)">11</button>
+      <button onclick="answer(12)">12</button>
+      <button onclick="answer(13)">13</button>
+      <button onclick="answer(14)">14</button>
+      <button onclick="answer(15)">15</button>
+      <button onclick="answer(16)">16</button>
+      <button onclick="answer(17)">17</button>
     </div>
     `
   }

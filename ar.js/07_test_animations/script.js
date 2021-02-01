@@ -1,5 +1,5 @@
 
-let $model, linkBE = 'https://earth-back.ar100.top/api/results/'
+let $model, linkBE = 'https://earth-back.ar100.top/api/results'
 const answers = []
 const animations = {
   chunks: [0, 6.77, 6.77, 6.77],

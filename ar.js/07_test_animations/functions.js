@@ -4,5 +4,4 @@ export const init = () => {
     setTimeout(() => {
       $model.object3D.el.setAttribute('animation-mixer', {timeScale: 0})
     }, 4000)
-    document.documentElement.style.setProperty('--vh', window.innerHeight / 100)
   }

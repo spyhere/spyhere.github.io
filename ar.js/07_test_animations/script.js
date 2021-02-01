@@ -1,9 +1,9 @@
 
-let $model, linkBE = 'https://earth-back.com.185-70-110-151.preview-host.pp.ua/api/results/'
+let $model, linkBE = 'https://earth-back.ar100.top/api/results/'
 const answers = []
 const animations = {
   chunks: [0, 6.77, 6.77, 6.77],
-  seconds: [6750, 600, 600, 0]
+  ms: [6750, 600, 600, 0]
 }
 let token = 0
 const messages = {
@@ -12,55 +12,43 @@ const messages = {
     'Скільки цілей сталого розвитку в фокусі вашої компанії?',
     'Оцініть важливість цілей сталого розвитку для бізнесу (де 1 - майже неважливо, 5 - надзвичайно важливо)'
   ],
-  buttons: ['buttons', 'count', 'rates']
+  buttons: ['buttons', 'count', 'rates'],
+  answers: {
+    buttons: 2,
+    count: 17,
+    rates: 5
+  }
 }
 
-class Buttons {
+const buttons = {
   buttons() {
     return `
     <div class="buttons">
       <button onclick="answer(1)">ТАК</button>
       <button onclick="answer(0)">НІ</button>
-    </div>
-    `
-  }
+    </div>`
+  },
   count() {
+    let buttons = []
+    for (let n = 1; n <= messages.answers.count; n++) {
+      buttons.push(`
+            <button onclick="answer(${n})">${n}</button>`)
+    }
     return `
-    <div class="counts">
-      <button onclick="answer(1)">1</button>
-      <button onclick="answer(2)">2</button>
-      <button onclick="answer(3)">3</button>
-      <button onclick="answer(4)">4</button>
-      <button onclick="answer(5)">5</button>
-      <button onclick="answer(6)">6</button>
-      <button onclick="answer(7)">7</button>
-      <button onclick="answer(8)">8</button>
-      <button onclick="answer(9)">9</button>
-      <button onclick="answer(10)">10</button>
-      <button onclick="answer(11)">11</button>
-      <button onclick="answer(12)">12</button>
-      <button onclick="answer(13)">13</button>
-      <button onclick="answer(14)">14</button>
-      <button onclick="answer(15)">15</button>
-      <button onclick="answer(16)">16</button>
-      <button onclick="answer(17)">17</button>
-    </div>
-    `
-  }
+    <div class="buttons">${buttons.join('')}
+    </div>`
+  },
   rates() {
+    let buttons = []
+    for (let n = 1; n <= messages.answers.rates; n++) {
+      buttons.push(`
+            <button onclick="answer(${n})">${n}</button>`)
+    }
     return `
-    <div class="buttons">
-      <button onclick="answer(1)">1</button>
-      <button onclick="answer(2)">2</button>
-      <button onclick="answer(3)">3</button>
-      <button onclick="answer(4)">4</button>
-      <button onclick="answer(5)">5</button>
-    </div>
-    `
+    <div class="buttons">${buttons.join('')}
+    </div>`
   }
 }
-
-const buttons = new Buttons()
 
 window.onload = () => {
   $model = document.querySelector('#model')
@@ -94,7 +82,7 @@ function init() {
   setTimeout(() => {
     stopAnim() 
     textPopUp()
-  }, animations.seconds[0])
+  }, animations.ms[0])
 }
 
 // TAKING ANSWER OF THE USER
@@ -103,11 +91,11 @@ function answer(answer) {
   document.querySelector('.popUp').remove()
   newAnim(animations.chunks[token])
   playAnim()
-  if (animations.seconds[token]) {
+  if (animations.ms[token]) {
     setTimeout(() => {
       stopAnim()
       textPopUp()
-    }, animations.seconds[token]) 
+    }, animations.ms[token])
   } else {
     bye()
   }

@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="../src/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+  <title>Js-Dom interactions, Part 04</title>
+</head>
+<body>
+<form>
+  <h2>Contact me!</h2>
+  <label for="name">Name</label>
+  <input id="name" required pattern="((\w+)(\s?)){2,}" title="Only letters" type="text">
+  
+  <label for="email">Email</label>
+  <input id="email" required pattern="([a-zA-Z0-9])+@(gmail|yahoo|hotmail).com"
+         title="Please provide valid email address" type="text">
+  
+  <label for="city">City</label>
+  <input id="city" required pattern="(\w+|[а-яА-Я]){2,}" title="There is no such city" type="text">
+  
+  <label for="phone">Phone</label>
+  <input id="phone" pattern="\+?\d+" title="Not valid phone number" type="text">
+  
+  <label for="file">File</label>
+  <input id="file" type="file" accept=".xlsx">
+  
+  <button type="submit">Submit</button>
+</form>
+<div class="response"></div>
+<script src="../src/index.js"></script>
+</body>
+</html>

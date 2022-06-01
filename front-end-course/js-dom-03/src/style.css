@@ -1,0 +1,78 @@
+
+* {
+    box-sizing: content-box;
+    margin: 0;
+    padding: 0;
+}
+
+.controls {
+    margin: auto;
+    padding: 30px;
+    text-align: center;
+    width: 25%;
+}
+
+.controls .buttons {
+    align-items: center;
+    border: 5px double;
+    display: flex;
+    height: 50px;
+    justify-content: space-around;
+}
+
+.buttons button {
+    cursor: pointer;
+    padding: 5px;
+    transition-duration: 0.5s;
+}
+
+.buttons button:hover {
+    box-shadow: 2px 2px 2px -1px;
+}
+
+.tvs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    row-gap: normal;
+    justify-content: center;
+    margin: auto;
+    min-width: 640px;
+    position: relative;
+    width: 50%;
+}
+
+.tvs::before {
+    background: #000;
+    bottom: 2px;
+    content: "";
+    filter: blur(4px);
+    height: 10px;
+    position: absolute;
+    width: 95%;
+}
+
+.tv {
+    position: relative;
+}
+
+.tv:nth-child(-n + 8) {
+    height: 105px;
+}
+
+.tv__screen {
+    filter: saturate(0.6) blur(0.4px);
+    left: 8px;
+    position: absolute;
+    top: 10px;
+    width: 101px;
+}
+
+.tv:hover > .tv__screen {
+    filter: brightness(1.1);
+}
+
+.tv__body {
+    cursor: pointer;
+    position: relative;
+}

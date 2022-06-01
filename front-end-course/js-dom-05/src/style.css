@@ -1,0 +1,116 @@
+* {
+    box-sizing: content-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #eee;
+    font-family: 'Baloo Da 2', cursive;
+}
+
+.container {
+    background: #fff;
+    border-radius: 20px;
+    border: 5px solid #6060ff;
+    margin: 100px auto;
+    width: 600px;
+}
+
+.title {
+    background: #6060ff;
+    border-radius: 10px 10px 0 0;
+    color: #fff;
+    margin-bottom: 10px;
+    position: relative;
+    text-align: center;
+}
+
+.input--styled {
+    border-color: #000;
+    border-radius: 5px;
+    outline: none;
+}
+
+#input {
+    border-width: 2px 4px;
+    font-size: 1.2em;
+    margin: 10px;
+    padding: 5px;
+    width: 50%;
+}
+
+input::placeholder {
+    color: #bbb;
+}
+
+input:focus {
+    box-shadow: 3px 3px 10px -2px;
+}
+
+.inputArea {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+#addTask {
+    background: #6060ff;
+    border-radius: 3px;
+    border: 2px solid #6060ff;
+    color: #fff;
+    cursor: pointer;
+    font-size: 1em;
+    padding: 5px;
+    transition-duration: 0.3s;
+}
+
+#addTask:hover {
+    background: #fff;
+    color: #6060ff;
+}
+
+.taskList {
+    margin: 15px;
+    min-height: 30px;
+}
+
+.noTasks {
+    font-size: 1.3em;
+    text-align: center;
+}
+
+.task {
+    display: flex;
+    margin: 2px 0;
+    padding-top: 2px;
+}
+
+.task:nth-child(n+2) {
+    border-top: 2px solid #ccc;
+}
+
+.task .task__desc {
+    padding-left: 5px;
+    flex-grow: 1;
+    font-size: 1.2em;
+}
+
+.task .task__desc input {
+    border-width: 1px 2px;
+    font-size: 0.9em;
+    height: 80%;
+    outline: none;
+    padding-left: 1px;
+    width: 98%;
+}
+
+.task .task__delete {
+    background: url(../public/static/media/icon_bin.png);
+    background-size: 24px;
+    border: none;
+    cursor: pointer;
+    height: 24px;
+    margin: auto;
+    width: 24px;
+}

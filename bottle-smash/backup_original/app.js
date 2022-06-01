@@ -62,7 +62,7 @@ function randomMall() {
 
 square.forEach((x) => {
     x.addEventListener("mouseup", () => {
-        if (x.id === hitPosition | x.id === hitPosition02) {
+        if (x.id === hitPosition || x.id === hitPosition02) {
             result++;
             x.classList.remove('mole');
             score.innerHTML = result
